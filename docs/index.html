@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles to override Bootstrap */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background-color: #0a0010;
+            padding: 1rem;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+        }
+
+        nav ul li a {
+            color: rgb(189, 178, 249); 
+            text-decoration: none; 
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: orange; 
+        }
+
+        /* Custom scrollbar */
+        body::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: #10021a;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #2d123f;
+            border-radius: 6px;
+        }
+
+        body::-webkit-scrollbar-thumb:hover {
+            background-color: #38174f;
+        }
+
+
+        .about-description {
+            color:rgb(255, 207, 153)
+        }
+
+        .border {
+            display: inline;
+            border: solid thick rgb(0, 19, 0);
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            background-color: rgb(27, 17, 41);
+        }
+
+        .border-check {
+            display: inline;
+            align-items: flex-start;
+            border: solid thick rgb(21, 2, 35);
+            padding-bottom: 5rem;
+        }
+
+        .contact-info {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container-fluid {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .dark {
+            background-color: #10021a;
+        }
+
+        .education-type {
+            font-size: 2.5rem; 
+            text-align: center; 
+            margin-bottom: 1rem;
+            color: rgb(134, 47, 0);
+        }
+
+        .intro-container {
+            display: flex;
+            justify-content: flex-start; 
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .intro-content {
+            padding-right: 1rem; 
+        }
+
+        .intro-content h2 {
+            font-size: 6rem; 
+            margin-bottom: 0.5rem; 
+        }
+        
+        @media (max-width: 768px) {
+            .intro-content h2 {
+                font-size: 4rem; 
+            }
+        }
+
+        .intro-header {
+            font-size: 3rem; 
+            text-align: center; 
+            margin-bottom: 1rem;
+        }
+
+        .intro-image img {
+            max-width: 100%; /* Ensure image does not overflow its container */
+            height: auto; /* Maintain image aspect ratio */
+            max-height: 500px; 
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        .left-about {
+            text-align: left;
+            padding-right: 10rem;
+        }
+
+        .light {
+            background-color: #1c022e;
+        }
+
+        .links {
+            padding-top: 0rem;
+        }
+
+
+        .project {
+            width: 100%;
+            font-size: 1.5rem;
+            padding-top: 3rem;
+            text-align: center;
+        }
+
+        .projects-content .project {
+            text-align: center; 
+        }
+
+
+        .project-description {
+            color:rgb(255, 207, 153)
+        }
+
+
+        .project-title {
+            font-size: 2.5rem; 
+            margin-bottom: 2rem; 
+            color: rgb(134, 47, 0);
+        }
+
+
+        .project a {
+            color: rgb(47, 210, 250);
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+
+        .project a:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            padding: 2rem;
+            text-align: center;
+            min-height: 15vh; 
+        }
+
+        .section-experience {
+            padding: 2rem;
+            text-align: center;
+            min-height: 30vh; 
+        }
+
+        .section-header {
+            font-size: 3rem; 
+            text-align: center; 
+            margin-bottom: 1rem;
+            color: orange;
+        }
+
+        .skills-header {
+            justify-content: center;
+            font-size: 3rem; 
+            text-align: center;
+            margin-bottom: 2rem; 
+            color: orange;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 100;
+            text-align: left;
+        }
+
+        .skills-list li {
+            align-items: center; 
+            font-size: 2rem; 
+            margin-bottom: 1rem; 
+        }
+
+        .skills-list li:before {
+            content: '✓'; 
+            color: green;
+            font-weight: bold; 
+            margin-right: 1rem; 
+        }
+
+        /* Media query for small screens */
+        @media (max-width: 576px) {
+            header {
+                padding: 0rem; /* Reduce padding for smaller screens */
+                height: 17vh; /* Maintain height at 1/10th of the viewport height */
+            }
+
+            nav ul {
+                flex-wrap: wrap; /* Allow items to wrap */
+                padding: 0;
+                margin: 0;
+                width: 90%;
+                overflow: hidden; /* Prevent overflow */
+            }
+
+            nav ul li {
+                width: calc(100% / 4 - 0.5rem); /* 4 items per row, adjust for margin */
+                text-align: center; /* Center text */
+                font-size: 0.9rem; /* Adjust font size */
+                margin: 0.15rem; /* Adjust margin */
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul id="toc" class="nav">
+                <li class="nav-item toc-link" data-section="intro"><a class="nav-link">Intro</a></li>
+                <li class="nav-item toc-link" data-section="about"><a class="nav-link">About</a></li>
+                <li class="nav-item toc-link" data-section="skills"><a class="nav-link">Skills</a></li>
+                <li class="nav-item toc-link" data-section="projects"><a class="nav-link">Projects</a></li>
+                <li class="nav-item toc-link" data-section="experience"><a class="nav-link">Experience</a></li>
+                <li class="nav-item toc-link" data-section="education"><a class="nav-link">Education</a></li>
+                <li class="nav-item toc-link" data-section="contact"><a class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container-fluid">
+            <section id="intro" class="section light">
+                <div class="row intro-container">
+                    <div class="col-xl-6 intro-content">
+                        <div class="row">
+                            <div class="col-xl-1">
+
+                            </div>
+                            <div class="col-xl-11">
+                                <h2 class="intro-header">David Alberto</h2>
+                                <h3 class="intro-header">Data Analyst</h3>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-xl-1">
+
+                    </div>
+                    <div class="col-xl-5 intro-image left">
+                        <img src="Data Analyst Edited.png" alt="Drawing of a data analyst">
+                    </div>
+                </div>
+            </section>
+        </div>
+        <section id="about" class="section dark">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-header">About Me</h2>
+                </div>
+                <div class="col-xl-4 offset-xl-4 left">
+                    <div class="about-description">
+                        <h3>With a background in healthcare, I bring real-world context to data-driven decision-making. Technology isn't just here to stay—it's shaping the future, and I'm excited to be part of that evolution!</h3>
+                        <br>
+                        <h3>Outside of work, I enjoy discovering new restaurants with friends, staying up to date with the latest K-dramas, and leveraging technologies to improve my life—from building Python automation programs to developing this website from scratch.</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="skills" class="section light">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="skills-header">Skills</h2>
+                </div>
+                <div class="col-3">
+                    
+                </div>
+                <div class="col-12 col-xl-3">
+                    <ul class="skills-list">
+                        <li>Microsoft Excel</li>
+                        <li>Google Sheets</li>
+                        <li>SQL</li>
+                        <li>Tableau</li>
+                        <li>Power BI</li>
+                        <li>Dataflow</li>
+                    </ul>
+                </div>
+                <div class="col-1">
+                    
+                </div>
+                <div class="col-12 col-xl-3">
+                    <ul class="skills-list">
+                        <li>R</li>
+                        <li>Python</li>
+                        <li>JavaScript</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>Git</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="projects" class="section dark">
+            <div class="row projects-content">
+                <div class="col-12">
+                    <h2 class="section-header project-title">Projects</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="row">
+                        <div class="col-xl-3">
+
+                        </div>
+                        <div class="col-xl-7">
+                            <div class="project">
+                                <h3 class="project-title">Bellabeat Case Study</h3>
+                                <p class="project-description">This study aims to analyze health and fitness data from Fitbit users in order to improve Bellabeat's marketing strategies.</p>
+                            </div>
+                            <div class="project links left">
+                                <a href="Bellabeat Case Study - Executive Summary.pdf" target="_blank">Executive Summary</a><span style="color:rgb(255, 207, 153)"> &lpar;1-2 min read&rpar;</span>
+                                <br>
+                                <a href="https://dalealberto.github.io/CaseStudy1-Bellabeat/" target="_blank">Full Study</a><span style="color:rgb(255, 207, 153)"> &lpar;15-20 min read&rpar;</span>
+                                <br>
+                                <a href="https://github.com/dalealberto/CaseStudy1-Bellabeat?tab=readme-ov-file" target="_blank">Repository</a> 
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-xl-6">
+                    <div class="row">
+                        <div class="col-xl-2">
+
+                        </div>
+                        <div class="col-xl-7">
+                            <div class="project">
+                                <h3 class="project-title">Google Fiber Case Study</h3>
+                                <p class="project-description">This study aims to analyze repeat call trends from a call center to ultimately improve call resolution efficiency.</p>
+                            </div>
+                            <div class="project links">
+                                <a href="https://docs.google.com/presentation/d/199j5SdIiO_wHetvBqvopqJ_wjli6nEHZ9kdsTUXhzzg/edit?usp=sharing" target="_blank">Executive Summary</a><span style="color:rgb(255, 207, 153)"> &lpar;1-2 min read&rpar;</span>
+                                <br>
+                                <a href="https://github.com/dalealberto/CaseStudy2-GoogleFiber" target="_blank">Repository</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="experience" class="section-experience light">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-header">Experience</h2>
+                    <h3>Just give me the data, and I'll give you <a href="https://public.tableau.com/app/profile/david.alberto3632/vizzes" target="_blank" style="color: rgb(47, 210, 250)">its story</a></h3>
+                </div>
+            </div>
+        </section>
+        <section id="education" class="section dark">
+            <div class="row ">
+                <div class="col-12">
+                    <h2 class="section-header">Education</h2>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-xl-6">
+                    <div class="row">
+                        <div class="col-xl-2">
+                            
+                        </div>
+                        <div class="col-xl-9">
+                            <h2 class="education-type">Degree</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-2">
+
+                        </div>
+                        <div class="col-xl-9 border">
+                            <h2>BSc &lpar;Honours&rpar; in Biology</h2>
+                            <h4>Ryerson University &lpar;2020&rpar;</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="row">
+                        <div class="col-xl-1">
+
+                        </div>
+                        <div class="col-xl-9">
+                            <h2 class="education-type">Certificates</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-1">
+
+                        </div>
+                        <div class="col-xl-9 border">
+                            <h2>Google Business Intelligence Analytics</h2>
+                            <h4>Google &lpar;June 2024&rpar;</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-1">
+
+                        </div>
+                        <div class="col-xl-9 border">
+                            <h2>Google Data Analytics</h2>
+                            <h4>Google &lpar;Mar 2024&rpar;</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-1">
+
+                        </div>
+                        <div class="col-xl-9 border">
+                            <h2>Python for Everybody</h2>
+                            <h4>University of Michigan &lpar;Oct 2023&rpar;</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="section light">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-header">Contact</h2>
+                    <ul class="contact-info">
+                        <p> ON, Canada </p>
+                        <p> davidkalberto@gmail.com </p>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--###Extra### Bootstrap JS and dependencies ###Extra###-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript for smooth scrolling and active section highlighting -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tocLinks = document.querySelectorAll('.toc-link');
+            const sections = document.querySelectorAll('.section');
+            const headerHeight = document.querySelector('header').offsetHeight;
+
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const sectionId = this.getAttribute('data-section');
+                    const section = document.getElementById(sectionId);
+                    window.scrollTo({
+                        top: section.offsetTop - headerHeight,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - headerHeight;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionBottom) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+                    current = 'contact';
+                }
+
+                tocLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.parentElement.getAttribute('data-section') === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
