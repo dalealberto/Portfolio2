@@ -166,6 +166,7 @@
             text-align: center;
         }
 
+
         .projects-content .project {
             text-align: center; 
         }
@@ -314,7 +315,7 @@
                     <div class="about-description">
                         <h3>With a background in healthcare, I bring real-world context to data-driven decision-making. Technology isn't just here to stay—it's shaping the future, and I'm excited to be part of that evolution!</h3>
                         <br>
-                        <h3>Outside of work, I enjoy discovering new restaurants with friends, staying up to date with the latest K-dramas, and leveraging technologies to improve my life—from building Python automation programs to developing this website from scratch.</h3>
+                        <h3>Outside of work, I enjoy discovering new restaurants with friends, staying up to date with the latest K-dramas and learning Web Development.</h3>
                     </div>
                 </div>
             </div>
@@ -322,7 +323,7 @@
         <section id="skills" class="section light">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="skills-header">Skills</h2>
+                    <h2 class="skills-header">Tools</h2>
                 </div>
                 <div class="col-3">
                     
@@ -332,7 +333,7 @@
                         <li>Microsoft Excel</li>
                         <li>Google Sheets</li>
                         <li>SQL</li>
-                        <li>Tableau</li>
+                        <li><a href="https://public.tableau.com/app/profile/david.alberto3632/vizzes" target="_blank" style="color: rgb(47, 210, 250)">Tableau</a></li>
                         <li>Power BI</li>
                         <li>Dataflow</li>
                     </ul>
@@ -343,7 +344,7 @@
                 <div class="col-12 col-xl-3">
                     <ul class="skills-list">
                         <li>R</li>
-                        <li>Python</li>
+                        <li><a href="https://github.com/dalealberto/Python/tree/main" target="_blank" style="color: rgb(47, 210, 250)">Python</a></li>
                         <li>JavaScript</li>
                         <li>HTML</li>
                         <li>CSS</li>
@@ -404,7 +405,7 @@
             <div class="row">
                 <div class="col-12">
                     <h2 class="section-header">Experience</h2>
-                    <h3>Just give me the data, and I'll give you <a href="https://public.tableau.com/app/profile/david.alberto3632/vizzes" target="_blank" style="color: rgb(47, 210, 250)">its story</a></h3>
+                    <h3>Please see my resume</h3>
                 </div>
             </div>
         </section>
@@ -532,6 +533,16 @@
                 });
             });
         });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll('a[target="_blank"]');
+        links.forEach(link => {
+          if (!link.rel.includes("noopener")) {
+            link.rel += (link.rel ? " " : "") + "noopener noreferrer";
+          }
+        });
+      });
     </script>
 </body>
 </html>
